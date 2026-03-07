@@ -111,9 +111,9 @@ export default function Hero() {
               }`}
             >
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]">
-                <span className="text-white">Leia</span>
+                <span className="text-white">Léia</span>
                 <br />
-                <span className="text-white">Oliver</span>
+                <span className="text-white">Oliveira</span>
                 <span className="text-zinc-600">.</span>
               </h1>
             </div>
@@ -198,7 +198,7 @@ export default function Hero() {
               <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-white/20 transition-all duration-500">
                 <Image
                   src="/perfil.jpg"
-                  alt="Leia Oliver"
+                  alt="Léia Oliveira"
                   fill
                   className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                   priority

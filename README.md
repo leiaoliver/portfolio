@@ -1,4 +1,4 @@
-# Leia Oliver — Portfolio
+# Léia Oliveira — Portfolio
 
 Personal portfolio built with **Next.js 16**, **React 19**, **TypeScript**, and **TailwindCSS 4**. Features a dark minimal design with scroll-reveal animations, interactive project cards, and WhatsApp integration.
 

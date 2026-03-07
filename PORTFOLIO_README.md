@@ -1,4 +1,4 @@
-# 🚀 Portfólio Profissional - Leia Oliver
+# 🚀 Portfólio Profissional - Léia Oliveira
 
 Portfólio moderno e profissional construído com **Next.js 15**, **React 19**, **TypeScript** e **TailwindCSS 4**, focado em IA, Automação e Engenharia de Prompt.
 

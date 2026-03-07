@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Leia Oliver | Analista de Software — Full-Stack & IA",
+  title: "Léia Oliveira | Analista de Software — Full-Stack & IA",
   description: "Analista de Software formada em ADS pela FIAP. Desenvolvedora Full-Stack — construo aplicações completas do desenvolvimento ao deploy, com projetos de IA e Prompt Engineering.",
   keywords: [
     "Analista de Software",
@@ -30,18 +30,18 @@ export const metadata: Metadata = {
     "LangChain",
     "OpenAI",
   ],
-  authors: [{ name: "Leia Oliver" }],
-  creator: "Leia Oliver",
+  authors: [{ name: "Léia Oliveira" }],
+  creator: "Léia Oliveira",
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    title: "Leia Oliver | Analista de Software — Full-Stack & IA",
+    title: "Léia Oliveira | Analista de Software — Full-Stack & IA",
     description: "Desenvolvedora Full-Stack com projetos de IA, do desenvolvimento ao deploy.",
-    siteName: "Leia Oliver Portfolio",
+    siteName: "Léia Oliveira Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Leia Oliver | Analista de Software — Full-Stack & IA",
+    title: "Léia Oliveira | Analista de Software — Full-Stack & IA",
     description: "Desenvolvedora Full-Stack com projetos de IA, do desenvolvimento ao deploy.",
   },
 };

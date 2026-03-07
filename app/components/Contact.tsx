@@ -155,7 +155,7 @@ export default function Contact() {
             Feito com Next.js, TailwindCSS e ☕
           </p>
           <span className="text-xs text-zinc-700 font-mono">
-            © {new Date().getFullYear()} Leia Oliver
+            © {new Date().getFullYear()} Léia Oliveira
           </span>
         </div>
       </div>
