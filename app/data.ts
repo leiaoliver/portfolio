@@ -48,16 +48,6 @@ export const experiences = [
     tags: ["APIs REST", "RabbitMQ", "Monitoramento"],
   },
   {
-    company: "Hybrid Development",
-    role: "Desenvolvedora Front-end",
-    period: "set 2022 — jan 2023",
-    place: "Júnior II",
-    summary:
-      "Desenvolvimento de aplicações web e mobile para clientes, em um time colaborativo.",
-    bullets: ["Interfaces com React e React Native", "Apps mobile com Expo e APIs em Node.js"],
-    tags: ["React", "React Native", "Expo", "Node.js"],
-  },
-  {
     company: "Loomer Tech",
     role: "Desenvolvedora Front-end Júnior",
     period: "jan 2022 — set 2022",

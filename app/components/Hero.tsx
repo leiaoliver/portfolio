@@ -201,7 +201,7 @@ export default function Hero() {
           <dl className="fade-in mt-12 grid max-w-md grid-cols-3 gap-6" style={{ animationDelay: "1.35s" }}>
             {[
               ["~5", "anos de experiência"],
-              ["5", "empresas"],
+              ["4", "empresas"],
               ["IA", "aplicada em produtos"],
             ].map(([n, label]) => (
               <div key={label}>
