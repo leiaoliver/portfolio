@@ -1,163 +1,103 @@
 "use client";
 
 import { useState } from "react";
-import { useMultiReveal } from "../hooks/useScrollReveal";
+import { links } from "../data";
 
-const contacts = [
-  {
-    label: "Email",
-    value: "leiaoliver@gmail.com",
-    href: "mailto:leiaoliver@gmail.com",
-    copyable: true,
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
-  },
+const channels = [
   {
     label: "LinkedIn",
-    value: "/in/leiaoliver",
-    href: "https://linkedin.com/in/leiaoliver",
-    icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-      </svg>
-    ),
+    href: links.linkedin,
+    icon: "M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z",
   },
   {
     label: "GitHub",
-    value: "/LeiaOliver",
-    href: "https://github.com/LeiaOliver",
-    icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-      </svg>
-    ),
+    href: links.github,
+    icon: "M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.2 11.39.6.11.83-.26.83-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z",
   },
   {
     label: "WhatsApp",
-    value: "(11) 99658-8992",
-    href: "https://wa.me/5511996588992",
-    icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-      </svg>
-    ),
+    href: links.whatsapp,
+    icon: "M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35zM12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88zM20.46 3.49A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z",
   },
-];
-
-const services = [
-  { name: "Desenvolvimento Full-Stack", msg: "Olá! Gostaria de saber mais sobre desenvolvimento full-stack." },
-  { name: "Projetos com IA", msg: "Olá! Tenho interesse em projetos com inteligência artificial." },
-  { name: "Prompt Engineering", msg: "Olá! Gostaria de conversar sobre prompt engineering." },
-  { name: "APIs & Integrações", msg: "Olá! Preciso de ajuda com APIs e integrações." },
-  { name: "Deploy & DevOps", msg: "Olá! Gostaria de saber mais sobre deploy e DevOps." },
 ];
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
-  const { revealRef, isVisible } = useMultiReveal();
 
-  const handleCopy = (text: string) => {
-    navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(links.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      window.location.href = `mailto:${links.email}`;
+    }
   };
 
   return (
-    <section id="contato" className="relative py-32 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
-        <div ref={revealRef("header")} className={`flex items-center gap-6 mb-16 transition-all duration-700 ${isVisible("header") ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
-          <span className="text-7xl sm:text-8xl font-bold text-white/[0.03] font-mono select-none">05</span>
-          <div>
-            <span className="text-xs font-mono text-zinc-600 uppercase tracking-[0.2em]">Fale comigo</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">Contato</h2>
-          </div>
-          <div className="flex-1 h-px bg-linear-to-r from-white/10 to-transparent" />
-        </div>
+    <section id="contato" className="relative py-28 sm:py-36">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="reveal relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-violet via-blue to-pink p-8 text-white shadow-2xl shadow-violet/30 sm:p-14">
+          <div className="dots absolute inset-0 opacity-20" aria-hidden="true" />
+          <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/20 blur-3xl" aria-hidden="true" />
 
-        <div className="grid lg:grid-cols-2 gap-16">
-          <div>
-            <div ref={revealRef("cta")} className={`mb-12 transition-all duration-700 ${isVisible("cta") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-xs font-mono text-zinc-500">Disponível para novos projetos</span>
-              </div>
-              <h3 className="text-2xl sm:text-3xl text-white font-bold leading-tight">
-                Vamos criar algo<br />incrível.
-              </h3>
+          <div className="relative">
+            <h2 className="max-w-3xl font-display text-[clamp(2.5rem,7vw,5rem)] font-extrabold leading-[0.95] tracking-[-0.03em]">
+              Vamos construir algo juntos?
+            </h2>
+            <p className="mt-6 max-w-xl text-lg text-white/85">
+              Estou aberta a vagas de desenvolvimento full stack, pleno ou sênior, remotas ou em São Paulo. Me
+              manda uma mensagem, respondo rápido.
+            </p>
+
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <a
+                href={`mailto:${links.email}`}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-[#17162b] transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.02]"
+              >
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="2" y="4" width="20" height="16" rx="3" />
+                  <path d="m22 7-10 6L2 7" />
+                </svg>
+                {links.email}
+              </a>
+              <button
+                type="button"
+                onClick={copy}
+                className="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-4 font-semibold text-white transition-colors hover:bg-white/15"
+                aria-live="polite"
+              >
+                {copied ? "E-mail copiado" : "Copiar e-mail"}
+              </button>
             </div>
 
-            <div ref={revealRef("contacts")} className="space-y-3">
-              {contacts.map((contact, i) => (
-                <div
-                  key={contact.label}
-                  className={`group flex items-center gap-4 p-4 rounded-lg border border-white/5 hover:border-white/15 hover:bg-white/[0.02] transition-all duration-500 ${
-                    isVisible("contacts") ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-6"
-                  }`}
-                  style={{ transitionDelay: `${i * 100}ms` }}
-                >
-                  <div className="text-zinc-600 group-hover:text-white transition-colors duration-300">
-                    {contact.icon}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-wider">{contact.label}</span>
-                    <a
-                      href={contact.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-sm text-zinc-300 hover:text-white transition-colors truncate"
-                    >
-                      {contact.value}
-                    </a>
-                  </div>
-                  {contact.copyable && (
-                    <button
-                      onClick={() => handleCopy(contact.value)}
-                      className="text-zinc-700 hover:text-white transition-colors text-xs font-mono"
-                    >
-                      {copied ? "Copiado!" : "Copiar"}
-                    </button>
-                  )}
-                </div>
+            <ul className="mt-10 flex flex-wrap gap-3">
+              {channels.map((c) => (
+                <li key={c.label}>
+                  <a
+                    href={c.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-white/15 px-5 py-2.5 font-medium backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/25"
+                  >
+                    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d={c.icon} />
+                    </svg>
+                    {c.label}
+                  </a>
+                </li>
               ))}
-            </div>
-          </div>
-
-          <div ref={revealRef("services")} className="lg:pt-20">
-            <h4 className="text-xs font-mono text-zinc-600 uppercase tracking-[0.2em] mb-6">Serviços</h4>
-            <div className="space-y-2">
-              {services.map((service, i) => (
-                <a
-                  key={service.name}
-                  href={`https://wa.me/5511996588992?text=${encodeURIComponent(service.msg)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`group flex items-center justify-between p-4 rounded-lg border border-white/5 hover:border-white/15 hover:bg-white/[0.02] transition-all duration-500 ${
-                    isVisible("services") ? "opacity-100 translate-x-0" : "opacity-0 translate-x-6"
-                  }`}
-                  style={{ transitionDelay: `${i * 100}ms` }}
-                >
-                  <span className="text-sm text-zinc-400 group-hover:text-white transition-colors">{service.name}</span>
-                  <svg className="w-4 h-4 text-zinc-700 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                  </svg>
-                </a>
-              ))}
-            </div>
+            </ul>
           </div>
         </div>
 
-        <div ref={revealRef("footer")} className={`mt-24 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 transition-all duration-700 ${isVisible("footer") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-          <span className="text-xl font-bold text-white tracking-tight">LO.</span>
-          <p className="text-xs text-zinc-600 font-mono">
-            Feito com Next.js, TailwindCSS e ☕
-          </p>
-          <span className="text-xs text-zinc-700 font-mono">
-            © {new Date().getFullYear()} Léia Oliveira
+        <footer className="mt-16 flex flex-col items-center justify-between gap-3 border-t border-line pt-8 text-sm text-muted sm:flex-row">
+          <span className="font-display text-xl font-extrabold text-ink">
+            léia<span className="text-violet">.</span>
           </span>
-        </div>
+          <span>Keep it simple. Feito com Next.js e Tailwind CSS.</span>
+          <span>© {new Date().getFullYear()} Léia Oliveira</span>
+        </footer>
       </div>
     </section>
   );

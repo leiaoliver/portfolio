@@ -1,21 +1,30 @@
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-import PromptEngineering from "./components/PromptEngineering";
-import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import StackMarquee from "./components/StackMarquee";
+import Experience from "./components/Experience";
+import Work from "./components/Work";
+import Stack from "./components/Stack";
+import Education from "./components/Education";
+import Contact from "./components/Contact";
+import RevealObserver from "./components/RevealObserver";
 
 export default function Home() {
   return (
-    <div className="grain relative min-h-screen bg-[#09090b]">
+    <div className="relative min-h-screen overflow-x-clip">
+      <div className="aurora" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+      </div>
+      <RevealObserver />
       <Navbar />
-      <main>
+      <main className="relative z-10">
         <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <PromptEngineering />
+        <StackMarquee />
+        <Experience />
+        <Work />
+        <Stack />
+        <Education />
         <Contact />
       </main>
     </div>
