@@ -73,7 +73,7 @@ export const works = [
     kind: "Web · Next.js",
     description:
       "Gestão de talentos e agendamentos para várias marcas, com componentes reutilizáveis e dados via GraphQL.",
-    tags: ["Next.js", "React", "Apollo / GraphQL", "Ant Design", "CSS Modules"],
+    tags: ["Next.js", "React", "GraphQL", "Ant Design", "CSS Modules"],
     glyph: "calendar",
   },
   {
@@ -94,10 +94,10 @@ export const stack = [
   { group: "Mobile", items: ["React Native", "Expo"] },
   {
     group: "Back-end e dados",
-    items: ["Node.js", "GraphQL", "Apollo", "Hasura", "Supabase", "PostgreSQL", "RabbitMQ"],
+    items: ["Node.js", "GraphQL", "Hasura", "Supabase", "PostgreSQL", "RabbitMQ"],
   },
   { group: "IA", items: ["Engenharia de prompt", "LLMs", "Automação de processos"] },
-  { group: "Ferramentas", items: ["Git", "GitHub", "Postman", "Vercel"] },
+  { group: "Ferramentas", items: ["Git", "GitHub", "CI/CD", "GitHub Actions", "Postman", "Vercel"] },
 ];
 
 export const education = [
